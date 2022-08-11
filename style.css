@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gameboard {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    border: 1px solid black;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 15px solid green;
+    background: linear-gradient(deepskyblue, #bbfae5);
+    z-index: 1;
+
+}
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-anm 2s linear infinite;
+    height: 80px;
+    z-index: 2;
+}
+.mario  {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+
+}
+.jump {
+    animation: jump 500ms ease-out;
+}
+.nuvem {
+    position: absolute;
+    width: 550px;
+    animation: nuvem-anm 20s infinite linear;
+    z-index: 2;
+}
+.go {
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    z-index: 4;
+
+}
+.perdeu {
+    background-color: rgba(132, 132, 132, 0.6);
+    padding: 10px;
+    margin-top: 100px;
+    display: inline-block;
+    border-radius: 10px;
+    visibility: hidden;
+    font: 15pt "Times New Roman";
+    z-index: 4;
+    cursor: pointer;
+}
+.points {
+    margin-bottom: 200px;
+    visibility: hidden;
+
+}
+.score {
+    position: absolute;
+    font: 20pt "Times New Roman";
+    z-index: 4;
+}
+@keyframes pipe-anm {
+    from {
+        right: 0%;
+    }
+    to {
+        right: 100%;
+    }
+
+}
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60% {
+        bottom: 180px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
+@keyframes nuvem-anm {
+    from {
+        right: -550px;
+
+    }
+    to {
+        right: 100%;
+
+    }
+
+}
+@keyframes death {
+    from {
+        bottom: const(marioPosition)px;
+        transform: rotate(0deg);
+    }
+    to {
+        bottom: -120px;
+        transform: rotate(360deg);
+    }
+
+}
